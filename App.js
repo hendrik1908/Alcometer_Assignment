@@ -2,8 +2,11 @@ import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
 import { StyleSheet, Text, TextInput, View, Button, Alert } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
-import RadioForm from 'react-native-simple-radio-button';
+//import RadioForm from 'react-native-simple-radio-button';
 import styles from './style/styles';
+import RadioButtonComponent from './components/radioButtonComponent';
+import Footer from './components/Footer';
+import Header from './components/Header';
 //import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 
 export default function App() {
@@ -96,7 +99,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Alcometer</Text>
+      <Header />
       <Text style={styles.normal}>Weight</Text>
       <TextInput style={styles.fields} value={weight} onChangeText={text => setWeight(text)} placeholder='in kilograms' keyboardType='decimal-pad'></TextInput>
       <Text style={styles.normal}>Bottles</Text>
@@ -118,21 +121,20 @@ export default function App() {
           }
       </Picker>
       <Text style={styles.normal}>Gender</Text>
-      <RadioForm
+      {/* <RadioForm
           style={styles.radio}
           buttonSize={10}
           radio_props={genders}
           initial={0}
           onPress={(value) => {setGender(value)}}>
-      </RadioForm>
-      {/* <Text style={styles.result}>
-        {bloodAlcoholLevel.toFixed(2)}
-      </Text> */}
+      </RadioForm> */}
+      <RadioButtonComponent onPress={(value) => {setGender(value)}}/>
       <Text style={ [bloodAlcoholLevel < 0.20 ? styles.resultLow : styles.resultMiddle] ||
         [bloodAlcoholLevel < 0.50 ? styles.resultMiddle : styles.resultHigh]}>
           {bloodAlcoholLevel.toFixed(2)}
       </Text>
       <Button onPress={calculate} title="CALCULATE"></Button>
+      <Footer />
       <StatusBar style="auto" /> 
     </View>
   );

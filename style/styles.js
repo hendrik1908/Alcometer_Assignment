@@ -8,16 +8,6 @@ export default StyleSheet.create({
         justifyContent: 'center',
       },
     
-      header: {
-        flex: 1,
-        color: '#1e90ff',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: 25,
-        fontWeight: 'bold',
-        margin: 10,
-      },
-    
       fields: {
         margin: 10,
       },
@@ -28,7 +18,7 @@ export default StyleSheet.create({
         justifyContent: 'center',
         fontSize: 12,
         fontWeight: 'bold',
-        margin: 5,
+        margin: 1,
       },
     
       result: {
@@ -54,5 +44,29 @@ export default StyleSheet.create({
       resultHigh:{
         color: 'red',
         fontWeight: 'bold',
-      }
+      },
+
+      header: {
+        flex: 1,
+        color: '#1e90ff',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: 25,
+        fontWeight: 'bold',
+        margin: 10,
+      },
+
+      footer: {
+        marginTop: 20,
+        backgroundColor: '#1e90ff',
+        flexDirection: 'row',
+      },
+
+      author: {
+        color: 'white',
+        flex: 1,
+        fontSize: 15,
+        textAlign: 'center',
+        margin: 10,
+      },
 });
