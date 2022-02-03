@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { TouchableOpacity, View, StyleSheet, Text  } from 'react-native';
 import styles from '../style/radioButtonStyle';
 
 export default class SelfmadeRadioButton extends Component {
 	state = {value: null,};
-
+	
+	
 	render() {
 		const { propertie } = this.props;
 		const { value } = this.state;
@@ -21,12 +22,13 @@ export default class SelfmadeRadioButton extends Component {
 									this.setState({
 										value: result.key,
 									});
+									this.props.onChange(value);
 								}}>
                                   {value === result.key && <View style={styles.selected} />}
 							</TouchableOpacity>
 						</View>
 					);
-				})}
+				})}	
 			</View>
 		);
 	}

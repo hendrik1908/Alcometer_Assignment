@@ -9,6 +9,10 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 //import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 
+import SelfmadeRadioButton from './components/selfmadeRadioButton';
+import stylesR from './style/radioButtonStyle';
+
+
 export default function App() {
 
   const[bloodAlcoholLevel, setBloodAlcoholLevel] = useState(0);
@@ -51,9 +55,13 @@ export default function App() {
   hours.push({label: '9 hours', value: 9});
   hours.push({label: '10 hours', value: 10});
 
+  // const genders=Array();
+  // genders.push({label: 'Male', value: 'male'});
+  // genders.push({label: 'Female', value: 'female'});
+
   const genders=Array();
-  genders.push({label: 'Male', value: 'male'});
-  genders.push({label: 'Female', value: 'female'});
+  genders.push({text: 'Male', key: 'male'});
+  genders.push({text: 'Female', key: 'female'});
 
   function calculate(){
     checkWeightInput();
@@ -128,9 +136,14 @@ export default function App() {
           initial={0}
           onPress={(value) => {setGender(value)}}>
       </RadioForm> */}
-      <RadioButtonComponent onPress={(value) => {setGender(value)}}/>
-      <Text style={ [bloodAlcoholLevel < 0.20 ? styles.resultLow : styles.resultMiddle] ||
-        [bloodAlcoholLevel < 0.50 ? styles.resultMiddle : styles.resultHigh]}>
+
+      {/* <RadioButtonComponent onPress={(value) => {setGender(value)}}/> */}
+
+      <View style={stylesR.wrapperComponent}>
+        <SelfmadeRadioButton propertie={genders} onChange={setGender}/>
+      </View>
+
+      <Text style={ [bloodAlcoholLevel < 0.20 ? styles.resultLow : bloodAlcoholLevel < 0.50 ? styles.resultMiddle : styles.resultHigh]}>
           {bloodAlcoholLevel.toFixed(2)}
       </Text>
       <Button onPress={calculate} title="CALCULATE"></Button>
