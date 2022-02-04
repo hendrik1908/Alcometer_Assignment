@@ -1,13 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
+import Constants from 'expo-constants';
 
 export default StyleSheet.create({
-    container: {
+      container: {
         flex: 1,
         backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingTop: StatusBar.currentHeight,
+        paddingTop: Platform.OS === 'android' ? Constants.statusBarHeight : 0,
       },
 
       scrollView: {
@@ -20,19 +19,17 @@ export default StyleSheet.create({
 
       fieldsMiddle: {
         margin: 10,
-        alignItems: 'center',
+        justifyContent: 'center',
       },
 
       button: {
         margin: 10,
-        justifyContent: 'center',
       },
     
       normal: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: 12,
+        textAlign:'left',
+        fontSize: 15,
         fontWeight: 'bold',
         margin: 1,
       },
@@ -52,6 +49,7 @@ export default StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 25,
         marginBottom: 10,
+        textAlign:'center',
       },
     
       resultMiddle:{
@@ -59,6 +57,7 @@ export default StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 25,
         marginBottom: 10,
+        textAlign:'center',
       },
     
       resultHigh:{
@@ -66,16 +65,17 @@ export default StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 25,
         marginBottom: 10,
+        textAlign:'center',
       },
 
       header: {
         flex: 1,
         color: '#1e90ff',
-        alignItems: 'center',
-        justifyContent: 'center',
         fontSize: 25,
         fontWeight: 'bold',
         margin: 10,
+        width: '100%',
+        textAlign: 'center',
       },
 
       footer: {

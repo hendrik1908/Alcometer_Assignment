@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
-import { StyleSheet, Text, TextInput, View, Button, Alert, ScrollView } from 'react-native';
+import { SafeAreaView, Text, TextInput, View, Button, Alert, ScrollView } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 //import RadioForm from 'react-native-simple-radio-button';
 import styles from './style/styles';
@@ -11,6 +11,7 @@ import Header from './components/Header';
 
 import SelfmadeRadioButton from './components/selfmadeRadioButton';
 import stylesR from './style/radioButtonStyle';
+//import Constants from 'expo-constants';
 
 
 export default function App() {
@@ -20,7 +21,6 @@ export default function App() {
   const[bottles, setBottles] = useState(1);
   const[time, setTime] = useState(1);
   const[gender, setGender] = useState('male');
-  //const [ok, setOk] = useState(false);
 
   const checkWeightInput = () => {
     if (weight == '' || weight == 0) {
@@ -55,10 +55,6 @@ export default function App() {
   hours.push({label: '9 hours', value: 9});
   hours.push({label: '10 hours', value: 10});
 
-  // const genders=Array();
-  // genders.push({label: 'Male', value: 'male'});
-  // genders.push({label: 'Female', value: 'female'});
-
   const genders=Array();
   genders.push({label: 'Male', value: 'male'});
   genders.push({label: 'Female', value: 'female'});
@@ -87,23 +83,6 @@ export default function App() {
       setBloodAlcoholLevel(negativeResult);
     }
   }
-
-  // const showAlert = () => {
-  //   Alert.alert(
-  //     "Error",
-  //     "Please enter the weight.",
-  //   [
-  //     {
-  //       text:"OK",
-  //       onPress: () => setOk(true)
-  //     },
-  //     {
-  //       text:"CANCEL",
-  //       onPress: () => setOk(false)
-  //     }
-  //   ]
-  //   );
-  // }
 
   return (
     <View style={styles.container}>
@@ -141,7 +120,7 @@ export default function App() {
               <SelfmadeRadioButton propertie={genders} onChange={setGender}/>
             </View>
           </View>
-          <View style={styles.fieldsMiddle}>    
+          <View style={styles.fields}>    
             <Text style={ [bloodAlcoholLevel < 0.20 ? styles.resultLow : bloodAlcoholLevel < 0.50 ? styles.resultMiddle : styles.resultHigh]}>
                 {bloodAlcoholLevel.toFixed(2)}
             </Text>
