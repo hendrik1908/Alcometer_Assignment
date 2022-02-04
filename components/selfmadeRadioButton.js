@@ -8,23 +8,23 @@ export default class SelfmadeRadioButton extends Component {
 	
 	render() {
 		const { propertie } = this.props;
-		const { value } = this.state;
+		const { valueGender } = this.state;
 
 		return (
 			<View>
 				{propertie.map(result => {
 					return (
-						<View key={result.key} style={styles.wrapper}>
-							<Text style={styles.text}>{result.text}</Text>
+						<View value={result.value} style={styles.wrapper}>
+							<Text style={styles.label}>{result.label}</Text>
 							<TouchableOpacity
 								style={styles.style}
 								onPress={() => {
 									this.setState({
-										value: result.key,
+										valueGender: result.value,
 									});
-									this.props.onChange(value);
 								}}>
-                                  {value === result.key && <View style={styles.selected} />}
+                                  {valueGender === result.value && <View style={styles.selected}/>}
+								  {this.props.onChange(valueGender)}
 							</TouchableOpacity>
 						</View>
 					);

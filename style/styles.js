@@ -1,3 +1,4 @@
+import { StatusBar } from 'expo-status-bar';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
@@ -6,10 +7,25 @@ export default StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
+        paddingTop: StatusBar.currentHeight,
+      },
+
+      scrollView: {
+        marginHorizontal:20,
       },
     
       fields: {
         margin: 10,
+      },
+
+      fieldsMiddle: {
+        margin: 10,
+        alignItems: 'center',
+      },
+
+      button: {
+        margin: 10,
+        justifyContent: 'center',
       },
     
       normal: {
@@ -34,16 +50,22 @@ export default StyleSheet.create({
       resultLow:{
         color: 'green',
         fontWeight: 'bold',
+        fontSize: 25,
+        marginBottom: 10,
       },
     
       resultMiddle:{
         color: 'orange',
         fontWeight: 'bold',
+        fontSize: 25,
+        marginBottom: 10,
       },
     
       resultHigh:{
         color: 'red',
         fontWeight: 'bold',
+        fontSize: 25,
+        marginBottom: 10,
       },
 
       header: {

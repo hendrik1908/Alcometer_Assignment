@@ -1,10 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
-import { StyleSheet, Text, TextInput, View, Button, Alert } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Button, Alert, ScrollView } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 //import RadioForm from 'react-native-simple-radio-button';
 import styles from './style/styles';
-import RadioButtonComponent from './components/radioButtonComponent';
+//import RadioButtonComponent from './components/radioButtonComponent';
 import Footer from './components/Footer';
 import Header from './components/Header';
 //import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
@@ -60,8 +60,8 @@ export default function App() {
   // genders.push({label: 'Female', value: 'female'});
 
   const genders=Array();
-  genders.push({text: 'Male', key: 'male'});
-  genders.push({text: 'Female', key: 'female'});
+  genders.push({label: 'Male', value: 'male'});
+  genders.push({label: 'Female', value: 'female'});
 
   function calculate(){
     checkWeightInput();
@@ -107,48 +107,49 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Header />
-      <Text style={styles.normal}>Weight</Text>
-      <TextInput style={styles.fields} value={weight} onChangeText={text => setWeight(text)} placeholder='in kilograms' keyboardType='decimal-pad'></TextInput>
-      <Text style={styles.normal}>Bottles</Text>
-      <Picker style={styles.fields} 
-        onValueChange={(itemValue) => setBottles(itemValue)}
-        selectedValue={bottles}>
-          {amount.map((amount, index) => (
-              <Picker.Item key={index} label={amount.label} value={amount.value} />
-            ))
-          }
-      </Picker>
-      <Text style={styles.normal}>Time</Text>
-      <Picker style={styles.fields} 
-        onValueChange={(itemValue) => setTime(itemValue)}
-        selectedValue={time}>
-          {hours.map((hours, index) => (
-              <Picker.Item key={index} label={hours.label} value={hours.value} />
-            ))
-          }
-      </Picker>
-      <Text style={styles.normal}>Gender</Text>
-      {/* <RadioForm
-          style={styles.radio}
-          buttonSize={10}
-          radio_props={genders}
-          initial={0}
-          onPress={(value) => {setGender(value)}}>
-      </RadioForm> */}
-
-      {/* <RadioButtonComponent onPress={(value) => {setGender(value)}}/> */}
-
-      <View style={stylesR.wrapperComponent}>
-        <SelfmadeRadioButton propertie={genders} onChange={setGender}/>
-      </View>
-
-      <Text style={ [bloodAlcoholLevel < 0.20 ? styles.resultLow : bloodAlcoholLevel < 0.50 ? styles.resultMiddle : styles.resultHigh]}>
-          {bloodAlcoholLevel.toFixed(2)}
-      </Text>
-      <Button onPress={calculate} title="CALCULATE"></Button>
-      <Footer />
-      <StatusBar style="auto" /> 
+      <ScrollView style={styles.scrollView}>
+          <Header />
+          <View style={styles.fields}>
+            <Text style={styles.normal}>Weight</Text>
+            <TextInput value={weight} onChangeText={text => setWeight(text)} placeholder='in kilograms' keyboardType='decimal-pad'></TextInput>
+          </View>
+          <View style={styles.fields}>
+            <Text style={styles.normal}>Bottles</Text>
+            <Picker
+              onValueChange={(itemValue) => setBottles(itemValue)}
+              selectedValue={bottles}>
+                {amount.map((amount, index) => (
+                    <Picker.Item key={index} label={amount.label} value={amount.value} />
+                  ))
+                }
+            </Picker>
+          </View>
+          <View style={styles.fields}>
+            <Text style={styles.normal}>Time</Text>
+            <Picker
+              onValueChange={(itemValue) => setTime(itemValue)}
+              selectedValue={time}>
+                {hours.map((hours, index) => (
+                    <Picker.Item key={index} label={hours.label} value={hours.value} />
+                  ))
+                }
+            </Picker>
+          </View>
+          <View style={styles.fields}>
+            <Text style={styles.normal}>Gender</Text>
+            <View style={stylesR.wrapperComponent}>
+              <SelfmadeRadioButton propertie={genders} onChange={setGender}/>
+            </View>
+          </View>
+          <View style={styles.fieldsMiddle}>    
+            <Text style={ [bloodAlcoholLevel < 0.20 ? styles.resultLow : bloodAlcoholLevel < 0.50 ? styles.resultMiddle : styles.resultHigh]}>
+                {bloodAlcoholLevel.toFixed(2)}
+            </Text>
+            <Button style={styles.button} onPress={calculate} title="CALCULATE" />
+          </View>
+          <Footer />
+          <StatusBar style="auto" /> 
+      </ScrollView>
     </View>
   );
 }
