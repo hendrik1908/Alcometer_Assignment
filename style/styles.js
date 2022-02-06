@@ -24,6 +24,11 @@ export default StyleSheet.create({
 
       button: {
         margin: 10,
+        marginTop: 10,
+      },
+
+      textInput:{
+        marginLeft: 10,
       },
     
       normal: {

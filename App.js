@@ -90,7 +90,7 @@ export default function App() {
           <Header />
           <View style={styles.fields}>
             <Text style={styles.normal}>Weight</Text>
-            <TextInput value={weight} onChangeText={text => setWeight(text)} placeholder='in kilograms' keyboardType='decimal-pad'></TextInput>
+            <TextInput style={styles.textInput} value={weight} onChangeText={text => setWeight(text)} placeholder='in kilograms' keyboardType='decimal-pad'></TextInput>
           </View>
           <View style={styles.fields}>
             <Text style={styles.normal}>Bottles</Text>
