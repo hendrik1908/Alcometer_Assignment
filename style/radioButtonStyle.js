@@ -10,8 +10,8 @@ export default StyleSheet.create({
 	},
     wrapperComponent: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
+        alignItems: 'flex-start',
+        justifyContent: 'flex-start',
     },
     text: {
         marginRight: 10,
@@ -26,6 +26,7 @@ export default StyleSheet.create({
 		borderColor: 'black',
 		alignItems: 'center',
 		justifyContent: 'center',
+        marginLeft: 210,
 	},
 	selected: {
 		width: 16,
