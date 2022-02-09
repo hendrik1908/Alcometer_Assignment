@@ -29,6 +29,7 @@ export default StyleSheet.create({
 
       textInput:{
         marginLeft: 10,
+        fontSize: 15,
       },
     
       normal: {

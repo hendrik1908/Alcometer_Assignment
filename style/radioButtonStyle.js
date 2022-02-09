@@ -4,6 +4,8 @@ export default StyleSheet.create({
     wrapper: {
         flex: 1,
         marginBottom: 36,
+        marginLeft: 10,
+        marginTop: 10,
         alignItems: 'center',
         flexDirection: 'row',
 		justifyContent: 'space-between',
@@ -15,7 +17,7 @@ export default StyleSheet.create({
     },
     text: {
         marginRight: 10,
-        fontSize: 12,
+        fontSize: 15,
         color: 'black',
     },
 	style: {
@@ -26,7 +28,7 @@ export default StyleSheet.create({
 		borderColor: 'black',
 		alignItems: 'center',
 		justifyContent: 'center',
-        marginLeft: 210,
+        marginLeft: 205,
 	},
 	selected: {
 		width: 16,

@@ -64,15 +64,15 @@ export default function App() {
 
     const litres = bottles * 0.33;
     const grams = litres * 8 * 4.5;
-    const burning = weight / 10;
+    const burning = weight.replace(',','.') / 10;
     const restGrams = grams - burning * time;
 
     let result = 0;
     if(gender === 'male'){
-      result = restGrams / (weight * 0.7);
+      result = restGrams / (weight.replace(',','.') * 0.7);
     }
     else {
-      result = restGrams / (weight * 0.6);
+      result = restGrams / (weight.replace(',','.') * 0.6);
     }
 
     if(result > 0){
