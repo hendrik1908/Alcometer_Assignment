@@ -2,16 +2,11 @@ import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
 import { SafeAreaView, Text, TextInput, View, Button, Alert, ScrollView } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
-//import RadioForm from 'react-native-simple-radio-button';
 import styles from './style/styles';
-//import RadioButtonComponent from './components/radioButtonComponent';
 import Footer from './components/Footer';
 import Header from './components/Header';
-//import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
-
 import SelfmadeRadioButton from './components/selfmadeRadioButton';
 import stylesR from './style/radioButtonStyle';
-//import Constants from 'expo-constants';
 
 
 export default function App() {
