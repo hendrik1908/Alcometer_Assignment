@@ -29,6 +29,7 @@ export default StyleSheet.create({
 
       textInput:{
         marginLeft: 10,
+        marginTop: 15,
         fontSize: 15,
       },
     
@@ -40,11 +41,6 @@ export default StyleSheet.create({
         margin: 1,
       },
     
-      result: {
-        fontWeight: 'bold',
-        fontSize: 25,
-      },
-    
       radio: {
         marginTop: 10,
         marginBottom: 10,
@@ -54,7 +50,7 @@ export default StyleSheet.create({
         color: 'green',
         fontWeight: 'bold',
         fontSize: 25,
-        marginBottom: 10,
+        marginBottom: 20,
         textAlign:'center',
       },
     
@@ -62,7 +58,7 @@ export default StyleSheet.create({
         color: 'orange',
         fontWeight: 'bold',
         fontSize: 25,
-        marginBottom: 10,
+        marginBottom: 20,
         textAlign:'center',
       },
     
@@ -70,7 +66,7 @@ export default StyleSheet.create({
         color: 'red',
         fontWeight: 'bold',
         fontSize: 25,
-        marginBottom: 10,
+        marginBottom: 20,
         textAlign:'center',
       },
 
@@ -85,7 +81,7 @@ export default StyleSheet.create({
       },
 
       footer: {
-        marginTop: 20,
+        marginTop: 40,
         backgroundColor: '#1e90ff',
         flexDirection: 'row',
       },

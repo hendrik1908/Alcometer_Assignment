@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     wrapper: {
         flex: 1,
-        marginBottom: 36,
+        marginBottom: 10,
         marginLeft: 10,
         marginTop: 10,
         alignItems: 'center',
@@ -12,6 +12,8 @@ export default StyleSheet.create({
 	},
     wrapperComponent: {
         flex: 1,
+        marginTop: 10,
+        marginBottom: 10,
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
     },
